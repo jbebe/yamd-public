@@ -1,0 +1,84 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "YAMD Api",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8003/api"
+        }
+    ],
+    "paths": {
+        "/submit": {
+            "post": {
+                "description": "Return entity immediately",
+                "responses": {
+                    "200": {
+                        "description": "Return token",
+                        "content": {
+                            "application/json": {}
+                        },
+                        "headers": {
+                            "": {
+                                "schema": {
+                                    "type": "string"
+                                },
+                                "example": ""
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {}
+                        },
+                        "headers": {
+                            "": {
+                                "schema": {
+                                    "type": "string"
+                                },
+                                "example": ""
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/mock-token": {
+            "get": {
+                "description": "Mock version of the SAS token",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/atom+xml;type=feed;charset=utf-8": {}
+                        },
+                        "headers": {}
+                    }
+                }
+            }
+        },
+        "/mock-download": {
+            "get": {
+                "description": "Mock version of the downloadable file",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {}
+                        },
+                        "headers": {
+                            "": {
+                                "schema": {
+                                    "type": "string"
+                                },
+                                "example": ""
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

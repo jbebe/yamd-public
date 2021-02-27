@@ -1,0 +1,81 @@
+@import "~@angular/material/theming";
+@import "/src/app/styles/constants";
+
+$color-primary: map-get($mat-pink, 500);
+$color-secondary: map-get($mat-pink, 800);
+
+.banner {
+  margin-top: 8rem;
+
+  h1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: $color-primary;
+    font-weight: bold;
+    font-size: 6rem;
+    line-height: 3.4rem;
+
+    small {
+      font-size: 1.16rem;
+      font-weight: normal;
+      color: $color-secondary;
+    }
+  }
+
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  .card {
+    width: 100%;
+
+    mat-form-field {
+      width: 100%;
+    }
+  }
+
+  .history-list {
+    width: 100%;
+
+    .history-item {
+      margin-bottom: 0.4rem;
+
+      a.mat-button {
+        min-width: fit-content;
+      }
+
+      & img[matlistavatar] {
+        display: none;
+        @media (min-width: $size-medium) {
+          display: block;
+        }
+      }
+    }
+  }
+
+}
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  50% {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+}
+
+.animated-background {
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+}

@@ -1,0 +1,27 @@
+@import "~@angular/material/theming";
+
+$color-primary: map-get($mat-pink, 500);
+$color-secondary: map-get($mat-pink, 800);
+
+h3 {
+  a {
+    color: #bdbdbd;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 2px dotted #696969;
+
+    &:hover, &:active, &:focus {
+      color: white;
+      border-bottom-color: white;
+    }
+  }
+}
+
+.download-error {
+  background-color: #5f2c37;
+}
+
+.mat-menu-item {
+  line-height: 34px;
+  height: 33px;
+}

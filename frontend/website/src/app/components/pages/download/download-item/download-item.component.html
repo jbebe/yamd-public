@@ -1,0 +1,23 @@
+<mat-list-item class="history-mediaEntity"
+               [class.animated-background]="mediaEntity.entity.state === MediaState.Created || mediaEntity.entity.state === MediaState.Prefilled"
+               [class.download-error]="mediaEntity.entity.state == MediaState.Error">
+  <img matListAvatar [src]="mediaEntity.entity.imageB64">
+  <h3 matLine>
+    <a [href]="mediaEntity.entity.mediaUrl" target="_blank">
+      {{mediaEntity.entity.title || mediaEntity.entity.mediaUrl}}
+    </a>
+  </h3>
+  <p matLine>
+    <span>-- {{mediaEntity.entity.type}}</span>
+  </p>
+  <span *ngIf="mediaEntity.entity.state == MediaState.Error">{{errorMessage}}</span>
+
+  <button *ngIf="mediaEntity.entity.state === MediaState.Success" [matMenuTriggerFor]="downloadMedia" mat-button color="primary">
+    Download ({{mediaEntity.entity.downloadFormats.length}})
+  </button>
+  <mat-menu #downloadMedia="matMenu">
+    <a mat-menu-item *ngFor="let format of mediaEntity.entity.downloadFormats" [href]="format.downloadUrl" target="_blank">
+      {{ format.resolution }}
+    </a>
+  </mat-menu>
+</mat-list-item>

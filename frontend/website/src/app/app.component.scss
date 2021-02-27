@@ -1,0 +1,16 @@
+@import "./styles/constants";
+
+$border-size: 30px;
+$article-width: 620px;
+
+.article-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 0 $border-size;
+
+  article {
+    width: 100%;
+    display: block;
+    max-width: $article-width;
+  }
+}

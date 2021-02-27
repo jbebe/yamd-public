@@ -1,0 +1,28 @@
+<div class="banner">
+  <h1>
+    YAMD
+    <small>Yet Another Media Downloader</small>
+  </h1>
+</div>
+
+<div class="search-box">
+  <mat-card class="card">
+    <ng-container *ngIf="isApiOnline; else apiOffline">
+    <mat-form-field appearance="outline">
+      <mat-label>URL</mat-label>
+      <input matInput spellcheck="false" [formControl]="urlInput" #inputElement cdkFocusInitial>
+      <mat-error *ngIf="inputError">{{inputError}}</mat-error>
+      <mat-icon matSuffix>search</mat-icon>
+      <mat-hint>Paste the URL in the search box and we"ll see if it's supported.</mat-hint>
+    </mat-form-field>
+    </ng-container>
+    <ng-template #apiOffline>
+      We're sorry for the inconvenience but the service is down. Please try again later.
+    </ng-template>
+  </mat-card>
+  <mat-list class="history-list">
+    <app-download-item
+      *ngFor="let item of mediaHistory | mapEnumerator:'entity.createdDate':true"
+      [mediaEntity]="item"></app-download-item>
+  </mat-list>
+</div>
